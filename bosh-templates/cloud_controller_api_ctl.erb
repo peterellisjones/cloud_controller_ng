@@ -62,6 +62,9 @@ case $1 in
     echo /var/vcap/sys/cores/core-%e-%s-%p-%t > /proc/sys/kernel/core_pattern
 
     ulimit -c unlimited
+    ulimit -n 10000
+    ulimit -l unlimited
+    ulimit -u unlimited
 
     /var/vcap/packages/syslog_aggregator/setup_syslog_forwarder.sh $CONFIG_DIR
 

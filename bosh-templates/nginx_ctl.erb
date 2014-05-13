@@ -16,6 +16,10 @@ case $1 in
   start)
     pid_guard $PIDFILE "Nginx"
 
+    ulimit -n 10000
+    ulimit -l unlimited 
+    ulimit -u unlimited
+
     mkdir -p $RUN_DIR
     mkdir -p $LOG_DIR
 
